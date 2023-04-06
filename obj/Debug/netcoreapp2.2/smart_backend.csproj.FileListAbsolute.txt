@@ -1,0 +1,14 @@
+D:\netprojects\smart_backend\smart_backend\bin\Debug\netcoreapp2.2\smart_backend.deps.json
+D:\netprojects\smart_backend\smart_backend\bin\Debug\netcoreapp2.2\smart_backend.runtimeconfig.json
+D:\netprojects\smart_backend\smart_backend\bin\Debug\netcoreapp2.2\smart_backend.runtimeconfig.dev.json
+D:\netprojects\smart_backend\smart_backend\bin\Debug\netcoreapp2.2\smart_backend.dll
+D:\netprojects\smart_backend\smart_backend\bin\Debug\netcoreapp2.2\smart_backend.pdb
+D:\netprojects\smart_backend\smart_backend\obj\Debug\netcoreapp2.2\smart_backend.csprojAssemblyReference.cache
+D:\netprojects\smart_backend\smart_backend\obj\Debug\netcoreapp2.2\smart_backend.csproj.CoreCompileInputs.cache
+D:\netprojects\smart_backend\smart_backend\obj\Debug\netcoreapp2.2\smart_backend.RazorAssemblyInfo.cache
+D:\netprojects\smart_backend\smart_backend\obj\Debug\netcoreapp2.2\smart_backend.RazorAssemblyInfo.cs
+D:\netprojects\smart_backend\smart_backend\obj\Debug\netcoreapp2.2\smart_backend.AssemblyInfoInputs.cache
+D:\netprojects\smart_backend\smart_backend\obj\Debug\netcoreapp2.2\smart_backend.AssemblyInfo.cs
+D:\netprojects\smart_backend\smart_backend\obj\Debug\netcoreapp2.2\smart_backend.RazorTargetAssemblyInfo.cache
+D:\netprojects\smart_backend\smart_backend\obj\Debug\netcoreapp2.2\smart_backend.dll
+D:\netprojects\smart_backend\smart_backend\obj\Debug\netcoreapp2.2\smart_backend.pdb
