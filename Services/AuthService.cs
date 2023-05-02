@@ -1,8 +1,11 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using smart_backend.Models.Auth;
 using smart_backend.Models.Request;
 using smart_backend.Models.Response;
 using smart_backend.Repository;
+using smart_backend.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -30,6 +33,9 @@ namespace smart_backend.Services
 
             var token = isSucessful ? GenerateToken(responseDBUser.codigo.ToString() ) : "";
 
+            var userPermissions = isSucessful ? _authRepository.GetUserPermission(responseDBUser.codigo) : null;
+
+            var docPermissions = isSucessful ? _authRepository.GetDocumentPermission(responseDBUser.codigo) : null;
 
             var response = new LoginResponse
             {
@@ -38,15 +44,20 @@ namespace smart_backend.Services
                 message = responseDBUser.mensaje,
                 user = new User
                 {
+                    codigo      = responseDBUser.codigo,
+                    usuario     = responseDBUser.usuario,
                     nombres     = responseDBUser.nombres,
                     apellidos   = responseDBUser.apellidos,
                     nroDoc      = responseDBUser.nroDoc,
                     email       = responseDBUser.email,
                     telefono    = responseDBUser.telefono,
+                    codTipoUsuario  = responseDBUser.codTipoUsuario,
                     tipoUsuario = responseDBUser.tipoUsuario,
                     codCliente  = responseDBUser.codCliente,
                     codEmpresa  = responseDBUser.codEmpresa,
-                    codPersonal = responseDBUser.codPersonal
+                    codPersonal = responseDBUser.codPersonal,
+                    userPermissions = userPermissions,
+                    docPermissions  = docPermissions,
                 }
             };
 
@@ -71,6 +82,35 @@ namespace smart_backend.Services
             return jwtTokenHandler.WriteToken(token);
         }
 
+        public Task<ValidateTokenResponse> Validate(string userId)
+        {
+            return Task.FromResult(_authRepository.GetInformationUser(userId));
+        }
 
+        public async Task<User> GetUser(int codeUser)
+        {
+            var userResponse = _authRepository.GetUser(codeUser);
+            var userPermissions = _authRepository.GetUserPermission(codeUser);
+            var docPermissions = _authRepository.GetDocumentPermission(codeUser);
+            var user = new User
+            {
+                codigo = userResponse.codigo,
+                usuario = userResponse.usuario,
+                nombres = userResponse.nombres,
+                apellidos = userResponse.apellidos,
+                nroDoc = userResponse.nroDoc,
+                email = userResponse.email,
+                telefono = userResponse.telefono,
+                codTipoUsuario = userResponse.codTipoUsuario,
+                tipoUsuario = userResponse.tipoUsuario,
+                codCliente = userResponse.codCliente,
+                codEmpresa = userResponse.codEmpresa,
+                codPersonal = userResponse.codPersonal,
+                userPermissions = userPermissions,
+                docPermissions = docPermissions,
+            };
+            return await Task.FromResult(user);
+        }
     }
+
 }

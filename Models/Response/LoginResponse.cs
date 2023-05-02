@@ -14,11 +14,26 @@ namespace smart_backend.Models.Response
         public User user { get; set; }
     }
 
-
     public class LoginDBResponse
     {
         public int estado { get; set; }
         public string mensaje { get; set; }
+        public int codigo { get; set; }
+        public string usuario { get; set; }
+        public string nombres { get; set; }
+        public string apellidos { get; set; }
+        public string nroDoc { get; set; }
+        public string email { get; set; }
+        public string telefono { get; set; }
+        public string codCliente { get; set; }
+        public int codEmpresa { get; set; }
+        public int codPersonal { get; set; }
+        public int codTipoUsuario { get; set; }
+        public string tipoUsuario { get; set; }
+    }
+
+    public class ValidateTokenResponse
+    {
         public int codigo { get; set; }
         public string nombres { get; set; }
         public string apellidos { get; set; }
@@ -29,5 +44,21 @@ namespace smart_backend.Models.Response
         public string codCliente { get; set; }
         public int codEmpresa { get; set; }
         public int codPersonal { get; set; }
+    }
+
+    public class GetUserResponse
+    {
+        public int codigo { get; set; }
+        public string usuario { get; set; }
+        public string nombres { get; set; }
+        public string apellidos { get; set; }
+        public string nroDoc { get; set; }
+        public string email { get; set; }
+        public string telefono { get; set; }
+        public string codCliente { get; set; }
+        public int codEmpresa { get; set; }
+        public int codPersonal { get; set; }
+        public int codTipoUsuario { get; set; }
+        public string tipoUsuario { get; set; }
     }
 }

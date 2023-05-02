@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,6 +8,14 @@ namespace smart_backend.Utilities
 {
     public static class Extensions
     {
+
+        public static string GetCurrentUser(this ControllerBase value)
+        {
+            var userId = value.HttpContext.User.Identity.Name;
+            if (userId.IsNull()) return null;
+            return userId;
+        }
+
         public static bool IsNull(this object value) => value == null;
 
         public static bool IsNotNull(this object value) => !IsNull(value);

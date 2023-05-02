@@ -31,6 +31,16 @@ namespace smart_backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddHttpContextAccessor();
+            services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IRequestRepository, RequestRepository>();
+            services.AddScoped<IPersonRepository, PersonRepository>();
+            services.AddScoped<IStatusRepository, StatusRepository>();
+            services.AddScoped<IContractorRepository, ContractorRepository>();
+            services.AddScoped<ICredentialRepository, CredentialRepository>();
+
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddJsonOptions(options =>
@@ -64,8 +74,8 @@ namespace smart_backend
                         };
                 });
 
-            services.AddScoped<IAuthRepository, AuthRepository>();
-            services.AddScoped<IAuthService, AuthService>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
